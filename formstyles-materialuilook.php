@@ -10,3 +10,17 @@
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * 
  **/
+
+//create the function
+function d6s_formstyles() { 
+    wp_register_script( 'd6smdformscript',  plugin_dir_url( __FILE__ ) . 'js/scripts.js' );
+  /*  Registers the style.css file that includes element css styling */
+    wp_register_style( 'd6smdformsstyle',  plugin_dir_url( __FILE__ ) . 'css/style.css' );
+
+  /* Enques the above scripts that have been registered otherwise they wont actually load */
+    wp_enqueue_script('d6smdformscript');
+    wp_enqueue_style('d6smdformsstyle');  
+}
+
+// Runs the function 
+add_action('wp_enqueue_scripts', 'd6s_formstyles');
